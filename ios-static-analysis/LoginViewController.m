@@ -101,14 +101,15 @@
         sqlite3_stmt *compiledStmt;
         
         // Check to see if the user exists; update if yes, add if no.
-        const char *queryStmt = "SELECT id FROM creds WHERE username=?";
+        const char *queryStmt = "SELECT id FROM creds WHERE username=? and password=?";
         int userID = -1;
         
         if (sqlite3_prepare_v2(credentialsDB, queryStmt, -1, &compiledStmt, NULL) == SQLITE_OK) {
             sqlite3_bind_text(compiledStmt, 1, [username UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStmt, 2, [password UTF8String], -1, SQLITE_TRANSIENT);
             while (sqlite3_step(compiledStmt) == SQLITE_ROW) {
                 userID = sqlite3_column_int(compiledStmt, 0);
-            }
+            }   
             
             sqlite3_finalize(compiledStmt);
         }
@@ -133,7 +134,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *username = @"master";
-    NSString *password = @"P4ss20rd!";
+    NSString *password = @"Passw0rd!";
     
     [self storeCredentialsForUsername:username withPassword:password];
 }

@@ -58,7 +58,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="submit:" destination="qfc-3f-OYc" eventType="touchUpInside" id="YGy-Ae-wVI"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="startUserView" id="yYk-2V-xJL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VE-6B-pSp">
@@ -79,6 +78,7 @@
                     <connections>
                         <outlet property="passwordField" destination="tnr-UY-5kz" id="fyl-6x-qlq"/>
                         <outlet property="usernameField" destination="bx3-7x-evZ" id="OYg-F7-eNw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="startUserView" id="Eg1-rd-NRG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqu-5p-NSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
